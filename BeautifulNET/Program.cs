@@ -10,6 +10,7 @@ namespace BeautifulNET
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
 
         }
     }
