@@ -21,11 +21,20 @@ namespace BeautifulNET
             if (observer != null)
                 container.Remove(observer);
         }
-        public virtual void Notify()
+        //推模式
+        public virtual void Notify(BoiledEventArgs e)
         {
             foreach (IObserver observer in container)
             {
-                observer.Update();
+                observer.Update(e);
+            }
+        }
+        //拉模式
+        public virtual void Notify(IObservable e)
+        {
+            foreach (IObserver observer in container)
+            {
+                observer.Update(this);
             }
         }
     }

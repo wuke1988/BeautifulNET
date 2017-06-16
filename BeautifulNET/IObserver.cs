@@ -9,5 +9,9 @@ namespace BeautifulNET
     interface IObserver
     {
         void Update();
+        //实现推模式
+        void Update(BoiledEventArgs args);
+        //实现拉模式
+        void Update(IObservable obj);
     }
 }

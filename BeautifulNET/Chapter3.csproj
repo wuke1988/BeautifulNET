@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoiledEventArgs.cs" />
     <Compile Include="Heater.cs" />
     <Compile Include="IObservable.cs" />
     <Compile Include="IObserver.cs" />

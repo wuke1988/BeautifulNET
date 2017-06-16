@@ -9,6 +9,10 @@ namespace BeautifulNET
     class Heater:SubjectBase
     {
         private int temperature;
+        public int Temperature
+        {
+            get { return temperature; }
+        }
         
         private string type;
         public string Type { get { return type; } }
@@ -28,17 +32,26 @@ namespace BeautifulNET
 
         }
 
-        public virtual void OnBoiled()
+        public virtual void OnBoiled(BoiledEventArgs args)
         {
-            base.Notify();
+            base.Notify(args);
+        }
+        public virtual void OnBoild2(IObservable obj)
+        {
+            base.Notify(obj);
         }
 
         public void BoilWater()
         {
+
             for (temperature = 0; temperature <= 100; temperature++)
             {
-                if(temperature>96)
-                    OnBoiled();
+                if (temperature > 96)
+                {
+                    BoiledEventArgs args = new BoiledEventArgs(temperature, "Real Fire 001", "Xi'an");
+                    OnBoiled(args);
+                    OnBoild2(this);
+                }
             }
         }
         
