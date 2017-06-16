@@ -10,6 +10,15 @@ namespace BeautifulNET
     {
         static void Main(string[] args)
         {
+
+            Heater heater = new Heater();
+            Alarm alarm = new Alarm();
+            Screen screen = new Screen();
+            heater.Register(alarm);
+            heater.Register(screen);
+
+            heater.BoilWater();
+
             Console.ReadLine();
 
         }
