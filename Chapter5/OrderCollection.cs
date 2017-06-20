@@ -146,9 +146,9 @@ namespace Chapter5
 
             public bool MoveNext()
             {
-                if (index < collection.Count-1)
-                {
-                    index++;
+                index++;
+                if (index < collection.Count)
+                {                  
                     return true;
                 }
                 return false;
