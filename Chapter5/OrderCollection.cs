@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace Chapter5
 {
+    /// <summary>
+    /// 自行实现的IEnumerable<Order>集合，采用HashTable存储数据
+    /// 并实现了OrderCollection集合的迭代器OrderEnumerator
+    /// </summary>
 
-    public class Order
-    {
-        public string CodeID { get; set; }
-        public string Country { get; set; }
-        public DateTime Date { set; get; }
-        public string Name { get; set; }
-    }
-    public  class OrderCollection:IEnumerable<Order>
+    public class OrderCollection:IEnumerable<Order>
     {
         private Hashtable hashTable;
 
@@ -161,5 +158,13 @@ namespace Chapter5
         }
 
 
+    }
+
+    public class Order
+    {
+        public string CodeID { get; set; }
+        public string Country { get; set; }
+        public DateTime Date { set; get; }
+        public string Name { get; set; }
     }
 }

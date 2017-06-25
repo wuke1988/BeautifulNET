@@ -12,7 +12,17 @@ namespace Chapter5
         {
             OrderCollection collection = InitialOrder();
 
-            foreach (Order item in collection)
+            var result = collection.WhereNew(o => o.Country.Contains("U"));
+
+            foreach (Order item in result)
+            {
+                Console.WriteLine("CodeID:" + item.CodeID + " Country:" + item.Country + " Date:" + item.Date + " Name:" + item.Name);
+            }
+            collection.Add(new Order { CodeID = "3", Country = "UK", Date = DateTime.Now, Name = "Elizabeth" });
+
+            Console.WriteLine("========================================================");
+
+            foreach (Order item in result)
             {
                 Console.WriteLine("CodeID:" + item.CodeID + " Country:" + item.Country + " Date:" + item.Date + " Name:" + item.Name);
             }
