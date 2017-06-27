@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Chapter8
 {
+    /// <summary>
+    /// 装饰器流-基于Stream类，为所有的流添加功能
+    /// </summary>
     class CompressionHelper
     {
         /// <summary>
