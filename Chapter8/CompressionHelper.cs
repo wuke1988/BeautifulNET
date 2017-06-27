@@ -11,16 +11,39 @@ namespace Chapter8
 {
     class CompressionHelper
     {
+        /// <summary>
+        /// DeflateStream 构造函数 (Stream, CompressionLevel, Boolean)  stream:解压缩的文件流。bool 如果在释放 DeflateStream 对象之后打开流对象，则为 true；否则为 false。
+        /// </summary>
+        /// <param name="sourcePath"></param>
+        /// <param name="outPath"></param>
         public void CompressionFile(string sourcePath,string outPath)
         {
             using (FileStream source = new FileStream(sourcePath, FileMode.Open, FileAccess.Read))
             {
                 using (FileStream compressedFileStream = new FileStream(outPath,FileMode.Create,FileAccess.Write))
                 {
-                    using (DeflateStream deflate = new DeflateStream(compressedFileStream, CompressionMode.Compress, true))
+                    using (DeflateStream deflate = new DeflateStream(compressedFileStream, CompressionLevel.Optimal, true))
                     {
                         source.CopyTo(deflate);
 
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// 解压缩时，DeflateStream 构造函数 (Stream, CompressionMode, Boolean),Stream 压缩的文件流
+        /// </summary>
+        /// <param name="sourcePath"></param>
+        /// <param name="outPath"></param>
+        public void DeCompressionFile(string sourcePath, string outPath)
+        {
+            using (FileStream source = new FileStream(sourcePath, FileMode.Open, FileAccess.Read))
+            {
+                using (FileStream decompressdFileStream = new FileStream(outPath, FileMode.Create, FileAccess.Write))
+                {
+                    using (DeflateStream deflate = new DeflateStream(source, CompressionMode.Decompress,true))
+                    {
+                        deflate.CopyTo(decompressdFileStream);
                     }
                 }
             }
@@ -36,6 +59,19 @@ namespace Chapter8
             watch.Stop();
 
             Console.WriteLine("耗时:" + watch.ElapsedMilliseconds);
+        }
+
+        public void Test2()
+        {
+
+            Stopwatch watch = new Stopwatch();
+
+            watch.Start();
+            DeCompressionFile("636341071291115751Compressd.log", DateTime.Now.Ticks + "DeCompressd.log");
+            watch.Stop();
+
+            Console.WriteLine("耗时:" + watch.ElapsedMilliseconds);
+
         }
     }
 }
