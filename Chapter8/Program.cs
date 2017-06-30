@@ -20,9 +20,14 @@ namespace Chapter8
 
             //helper.Test();
 
-            WrapperHelper helper = new WrapperHelper();
+            //WrapperHelper helper = new WrapperHelper();
 
-            helper.Test();            
+            //helper.Test();            
+
+            ObjectSerialization serialization = new ObjectSerialization();
+
+            serialization.Test();
+            serialization.Test2();
 
             Console.ReadLine();
         }
