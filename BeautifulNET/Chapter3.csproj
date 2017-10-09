@@ -58,14 +58,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoiledEventArgs.cs" />
-    <Compile Include="Heater.cs" />
-    <Compile Include="IObservable.cs" />
-    <Compile Include="IObserver.cs" />
+    <Compile Include="1EventDerivedFromDelegate\MyButtonTest.cs" />
+    <Compile Include="2RealizeHeaterByEvent\Alarm.cs" />
+    <Compile Include="2RealizeHeaterByEvent\Display.cs" />
+    <Compile Include="2RealizeHeaterByEvent\Heater.cs" />
+    <Compile Include="2RealizeHeaterByEvent\Test.cs" />
+    <Compile Include="3RealizeHeaterByEventDepth\Heater1.cs" />
+    <Compile Include="3RealizeHeaterByEventDepth\Heater2.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\BoiledEventArgs.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\Heater.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\IObservable.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\IObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screen.cs" />
-    <Compile Include="SubjectBase.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\Screen.cs" />
+    <Compile Include="4RealizeHeaterByObserverPattern\SubjectBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -82,6 +89,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
